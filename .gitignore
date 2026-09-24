@@ -1,0 +1,39 @@
+# ExpensePro — git ignore rules
+# Runtime-generated files are never committed. Source stays clean.
+
+# Runtime logs (rotated per deployment; never commit log contents)
+logs/
+storage/logs/
+storage/runtime/
+*.log
+
+# Local QA / debugging artifacts (regenerated on demand, never committed)
+qa/
+result*.json
+coverage/
+
+# Local environment overrides
+.env
+.env.local
+
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+
+# Dependency trees (this project needs none at runtime)
+node_modules/
+vendor/
+
+# Temporary and backup files
+*.tmp
+*.bak
+*.orig

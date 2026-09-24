@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="698" viewBox="0 0 860 698" role="img">
+<title>Frontend File Structure</title><rect width="860" height="698" fill="#FFFFFF"/>
+<text x="20" y="26" font-family="system-ui,Segoe UI,Arial" font-size="17" font-weight="700" fill="#4338CA">Frontend File Structure</text>
+<text x="20" y="52" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">assets/js/</text>
+<text x="20" y="71" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── components/</text>
+<text x="20" y="90" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155"></text>
+<text x="20" y="109" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── core/</text>
+<text x="20" y="128" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── api-client.js</text>
+<text x="20" y="147" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── app-config.js</text>
+<text x="20" y="166" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── error-handler.js</text>
+<text x="20" y="185" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── finance.js</text>
+<text x="20" y="204" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── form-state.js</text>
+<text x="20" y="223" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── validation.js</text>
+<text x="20" y="242" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── features/</text>
+<text x="20" y="261" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155"></text>
+<text x="20" y="280" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── pages/</text>
+<text x="20" y="299" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── analytics.js</text>
+<text x="20" y="318" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── budgets.js</text>
+<text x="20" y="337" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── import.js</text>
+<text x="20" y="356" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── login.js</text>
+<text x="20" y="375" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── notifications.js</text>
+<text x="20" y="394" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── profile.js</text>
+<text x="20" y="413" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── register.js</text>
+<text x="20" y="432" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── reports.js</text>
+<text x="20" y="451" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── services/</text>
+<text x="20" y="470" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155"></text>
+<text x="20" y="489" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── vendor/</text>
+<text x="20" y="508" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155"></text>
+<text x="20" y="527" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── app.js</text>
+<text x="20" y="546" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── categories.js</text>
+<text x="20" y="565" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── charts.js</text>
+<text x="20" y="584" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── dashboard.js</text>
+<text x="20" y="603" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── loader.js</text>
+<text x="20" y="622" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── pdf.js</text>
+<text x="20" y="641" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── pwa.js</text>
+<text x="20" y="660" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── transactions.js</text>
+<text x="20" y="679" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">└── vendor.js</text>
+</svg>

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="2636" viewBox="0 0 860 2636" role="img">
+<title>ExpensePro — Complete Project Structure</title><rect width="860" height="2636" fill="#FFFFFF"/>
+<text x="20" y="26" font-family="system-ui,Segoe UI,Arial" font-size="17" font-weight="700" fill="#4338CA">ExpensePro — Complete Project Structure</text>
+<text x="20" y="52" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">ExpensePro/</text>
+<text x="20" y="71" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── api/</text>
+<text x="20" y="90" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── budgets.php</text>
+<text x="20" y="109" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── categories.php</text>
+<text x="20" y="128" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── dashboard.php</text>
+<text x="20" y="147" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── export.php</text>
+<text x="20" y="166" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── import.php</text>
+<text x="20" y="185" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── login.php</text>
+<text x="20" y="204" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── logout.php</text>
+<text x="20" y="223" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── notifications.php</text>
+<text x="20" y="242" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── profile.php</text>
+<text x="20" y="261" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── quick-templates.php</text>
+<text x="20" y="280" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── register.php</text>
+<text x="20" y="299" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── reports.php</text>
+<text x="20" y="318" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── transactions.php</text>
+<text x="20" y="337" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── version.php</text>
+<text x="20" y="356" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── assets/</text>
+<text x="20" y="375" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── css/</text>
+<text x="20" y="394" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── components/</text>
+<text x="20" y="413" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── core/</text>
+<text x="20" y="432" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── features/</text>
+<text x="20" y="451" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── layout/</text>
+<text x="20" y="470" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── pages/</text>
+<text x="20" y="489" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── tailwind.css</text>
+<text x="20" y="508" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── tailwind.input.css</text>
+<text x="20" y="527" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── icons/</text>
+<text x="20" y="546" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── SVG/</text>
+<text x="20" y="565" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── web/</text>
+<text x="20" y="584" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── js/</text>
+<text x="20" y="603" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── components/</text>
+<text x="20" y="622" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── core/</text>
+<text x="20" y="641" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── features/</text>
+<text x="20" y="660" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── pages/</text>
+<text x="20" y="679" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── services/</text>
+<text x="20" y="698" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── vendor/</text>
+<text x="20" y="717" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── app.js</text>
+<text x="20" y="736" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── categories.js</text>
+<text x="20" y="755" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── charts.js</text>
+<text x="20" y="774" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── dashboard.js</text>
+<text x="20" y="793" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── loader.js</text>
+<text x="20" y="812" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── pdf.js</text>
+<text x="20" y="831" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── pwa.js</text>
+<text x="20" y="850" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── transactions.js</text>
+<text x="20" y="869" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── vendor.js</text>
+<text x="20" y="888" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── samples/</text>
+<text x="20" y="907" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│       └── expensepro-sample.csv</text>
+<text x="20" y="926" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── backend/</text>
+<text x="20" y="945" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── calculations/</text>
+<text x="20" y="964" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── finance.php</text>
+<text x="20" y="983" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── core/</text>
+<text x="20" y="1002" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── escaping.php</text>
+<text x="20" y="1021" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── database/</text>
+<text x="20" y="1040" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── repositories/</text>
+<text x="20" y="1059" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── TransactionManager.php</text>
+<text x="20" y="1078" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── domain/</text>
+<text x="20" y="1097" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── budgets.php</text>
+<text x="20" y="1116" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── notifications.php</text>
+<text x="20" y="1135" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── http/</text>
+<text x="20" y="1154" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── response.php</text>
+<text x="20" y="1173" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── security/</text>
+<text x="20" y="1192" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── csrf.php</text>
+<text x="20" y="1211" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── device.php</text>
+<text x="20" y="1230" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── rate-limit.php</text>
+<text x="20" y="1249" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── services/</text>
+<text x="20" y="1268" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── CategoryService.php</text>
+<text x="20" y="1287" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── TransactionService.php</text>
+<text x="20" y="1306" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── support/</text>
+<text x="20" y="1325" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── formatting.php</text>
+<text x="20" y="1344" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── Logger.php</text>
+<text x="20" y="1363" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── validation/</text>
+<text x="20" y="1382" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── validation.php</text>
+<text x="20" y="1401" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── .htaccess</text>
+<text x="20" y="1420" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── database/</text>
+<text x="20" y="1439" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── .htaccess</text>
+<text x="20" y="1458" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── schema.sql</text>
+<text x="20" y="1477" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── docs/</text>
+<text x="20" y="1496" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── assets/</text>
+<text x="20" y="1515" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── charts/</text>
+<text x="20" y="1534" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── diagrams/</text>
+<text x="20" y="1553" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── data/</text>
+<text x="20" y="1572" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── repo.json</text>
+<text x="20" y="1591" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── diagrams/</text>
+<text x="20" y="1610" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── api/</text>
+<text x="20" y="1629" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── architecture/</text>
+<text x="20" y="1648" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── database/</text>
+<text x="20" y="1667" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── performance/</text>
+<text x="20" y="1686" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── pwa/</text>
+<text x="20" y="1705" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── security/</text>
+<text x="20" y="1724" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── structure/</text>
+<text x="20" y="1743" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── ui/</text>
+<text x="20" y="1762" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── validation/</text>
+<text x="20" y="1781" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── workflows/</text>
+<text x="20" y="1800" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── visual-index.svg</text>
+<text x="20" y="1819" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── screenshots/</text>
+<text x="20" y="1838" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   ├── desktop/</text>
+<text x="20" y="1857" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   │   └── mobile/</text>
+<text x="20" y="1876" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── ExpensePro_Project_Documentation.docx</text>
+<text x="20" y="1895" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── ExpensePro_Project_Documentation.pdf</text>
+<text x="20" y="1914" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── includes/</text>
+<text x="20" y="1933" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── .htaccess</text>
+<text x="20" y="1952" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── api.php</text>
+<text x="20" y="1971" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── auth.php</text>
+<text x="20" y="1990" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── config.php</text>
+<text x="20" y="2009" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── database.php</text>
+<text x="20" y="2028" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── finance.php</text>
+<text x="20" y="2047" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── functions.php</text>
+<text x="20" y="2066" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── layouts/</text>
+<text x="20" y="2085" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── app-header.php</text>
+<text x="20" y="2104" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── footer.php</text>
+<text x="20" y="2123" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── guest-header.php</text>
+<text x="20" y="2142" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── mobile-bottom-nav.php</text>
+<text x="20" y="2161" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── scripts.php</text>
+<text x="20" y="2180" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── sidebar.php</text>
+<text x="20" y="2199" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── offline/</text>
+<text x="20" y="2218" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── offline.html</text>
+<text x="20" y="2237" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── pages/</text>
+<text x="20" y="2256" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── 404.php</text>
+<text x="20" y="2275" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── analytics.php</text>
+<text x="20" y="2294" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── budgets.php</text>
+<text x="20" y="2313" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── categories.php</text>
+<text x="20" y="2332" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── dashboard.php</text>
+<text x="20" y="2351" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── help.php</text>
+<text x="20" y="2370" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── home.php</text>
+<text x="20" y="2389" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── import.php</text>
+<text x="20" y="2408" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── login.php</text>
+<text x="20" y="2427" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── notifications.php</text>
+<text x="20" y="2446" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── profile.php</text>
+<text x="20" y="2465" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── register.php</text>
+<text x="20" y="2484" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   ├── reports.php</text>
+<text x="20" y="2503" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">│   └── transactions.php</text>
+<text x="20" y="2522" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── .gitignore</text>
+<text x="20" y="2541" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── .htaccess</text>
+<text x="20" y="2560" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── index.php</text>
+<text x="20" y="2579" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── manifest.json</text>
+<text x="20" y="2598" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">├── README.md</text>
+<text x="20" y="2617" font-family="Consolas,Menlo,monospace" font-size="13.5" fill="#334155">└── sw.js</text>
+</svg>

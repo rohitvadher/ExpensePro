@@ -1,0 +1,19 @@
+body.is-offline::before {
+    content: 'You are offline — Some features may be unavailable';
+    display: block;
+    background: #F59E0B;
+    color: white;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9998;
+}
+
+body.is-offline {
+    padding-top: 36px;
+}

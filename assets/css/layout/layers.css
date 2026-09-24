@@ -1,0 +1,12 @@
+.ep-layer-header { z-index: var(--z-header); }
+.ep-layer-sidebar { z-index: var(--z-sidebar); }
+.ep-layer-nav { z-index: var(--z-nav); }
+.ep-layer-sheet { z-index: var(--z-sheet); }
+.ep-layer-modal { z-index: var(--z-modal); }
+
+.ep-nav-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.ep-header-safe {
+    padding-top: env(safe-area-inset-top, 0);
+}

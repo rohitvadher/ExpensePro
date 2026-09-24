@@ -1,0 +1,44 @@
+.flatpickr-calendar {
+    font-family: inherit;
+    border: 1px solid var(--ep-border);
+    border-radius: var(--ep-radius-sm);
+    box-shadow: var(--ep-shadow);
+}
+
+.flatpickr-calendar .flatpickr-month,
+.flatpickr-calendar .flatpickr-current-month {
+    color: var(--ep-text);
+}
+
+.flatpickr-calendar .flatpickr-weekday {
+    color: var(--ep-muted);
+    font-weight: 600;
+}
+
+.flatpickr-calendar .flatpickr-day:hover,
+.flatpickr-calendar .flatpickr-day:focus {
+    background: #eef2ff;
+    border-color: #eef2ff;
+}
+
+.flatpickr-calendar .flatpickr-day.today {
+    border-color: var(--ep-primary);
+}
+
+.flatpickr-calendar .flatpickr-day.today:hover,
+.flatpickr-calendar .flatpickr-day.today:focus {
+    background: var(--ep-primary);
+    border-color: var(--ep-primary);
+    color: #ffffff;
+}
+
+.flatpickr-calendar .flatpickr-day.selected,
+.flatpickr-calendar .flatpickr-day.startRange,
+.flatpickr-calendar .flatpickr-day.endRange,
+.flatpickr-calendar .flatpickr-day.selected:hover,
+.flatpickr-calendar .flatpickr-day.startRange:hover,
+.flatpickr-calendar .flatpickr-day.endRange:hover {
+    background: var(--ep-primary);
+    border-color: var(--ep-primary);
+    color: #ffffff;
+}

@@ -1,0 +1,116 @@
+@media (max-width: 767px) {
+    .ep-filter-panel {
+        position: fixed;
+        inset: 0;
+        z-index: var(--z-sheet);
+    }
+
+    .ep-filter-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.4);
+        animation: modalFadeIn 0.2s ease-out;
+    }
+
+    .ep-filter-card {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-height: 92vh;
+        max-height: 92dvh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        background: var(--ep-surface);
+        border-radius: 20px 20px 0 0;
+        padding: 12px 20px calc(20px + env(safe-area-inset-bottom, 0px));
+        animation: ep-sheet-up 0.22s ease-out;
+    }
+
+    .ep-sheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: var(--z-sheet);
+        max-height: 85vh;
+        max-height: 85dvh;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px 20px 0 0;
+        background: #fff;
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .ep-sheet-inner {
+        padding: 12px 20px calc(20px + env(safe-area-inset-bottom, 0px));
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ep-sheet-group-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #94a3b8;
+        margin: 4px 4px 8px;
+    }
+
+    .ep-sheet-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .ep-sheet-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        padding: 13px 12px;
+        border-radius: 14px;
+        color: #334155;
+        font-size: 15px;
+        font-weight: 500;
+        min-height: 52px;
+        text-align: left;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .ep-sheet-item:hover {
+        background: #f8fafc;
+    }
+
+    .ep-sheet-item svg {
+        color: #94a3b8;
+        flex-shrink: 0;
+    }
+
+    .ep-sheet-item-active {
+        background: #eef2ff;
+        color: var(--ep-primary);
+    }
+
+    .ep-sheet-item-active svg {
+        color: var(--ep-primary);
+    }
+
+    .ep-sheet-item-danger {
+        color: var(--ep-danger);
+    }
+
+    .ep-sheet-item-danger svg {
+        color: var(--ep-danger);
+    }
+
+    .ep-stat-balance {
+        order: -1;
+    }
+
+    #main-content-wrapper {
+        padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+    }
+}

@@ -1,0 +1,54 @@
+#ep-page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-loader);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(248, 250, 252, 0.75);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+#ep-page-loader.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.ep-loader-box {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 32px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.ep-loader-box p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.ep-inline-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px 16px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.ep-btn-dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ep-btn-dots svg {
+    display: block;
+}

@@ -1,0 +1,111 @@
+# ============================================================
+# Project: ExpensePro | Version: 1.0
+# Student: Rohit Vadher | Course: BCA Sem-5
+# File: .htaccess
+# Purpose: Clean URLs and localhost security headers.
+# ============================================================
+# Project: ExpensePro v1.0
+# Author: Rohit Vadher
+# Description: Apache .htaccess configuration for ExpensePro
+#              Enables clean URLs and security headers.
+# Runs on localhost — no HTTPS redirect needed.
+# ============================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Keep this in sync with EXPENSEPRO_BASE_URL (or the auto-detected
+    # application directory) when the app is not deployed at /ExpensePro/.
+    RewriteBase /ExpensePro/
+
+    # Only apply to non-existent files/directories
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Rewrite /pagename to ?page=pagename
+    # Example: /dashboard -> ?page=dashboard
+    RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?page=$1 [L,QSA]
+</IfModule>
+
+# Block markdown files from web access
+<FilesMatch "\.md$">
+    Require all denied
+</FilesMatch>
+
+# ============================================================
+# Security Headers
+# These help protect against common web attacks
+# ============================================================
+
+<IfModule mod_headers.c>
+    # Content Security Policy — allows only the CDN resources the app
+    # actually uses: jsDelivr (lazy ApexCharts, html2pdf.js, Lucide,
+    # Flatpickr JS + CSS, Day.js). style-src includes jsDelivr solely for
+    # the SRI-pinned Flatpickr stylesheet. No 'unsafe-eval', no wildcards.
+    # (Tailwind is compiled locally; no Tailwind CDN remains.)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cdn.jsdelivr.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+    # Prevent MIME-type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Enable XSS protection in older browsers
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Prevent clickjacking
+    Header always set X-Frame-Options "DENY"
+
+    # Do not leak full URLs to other origins
+    Header always set Referrer-Policy "same-origin"
+</IfModule>
+
+# ============================================================
+# Text Compression
+# mod_deflate applies after an Apache restart (module enabled in
+# httpd.conf). Until then, PHP output below is already compressed
+# via zlib (see PHP section); static files compress post-restart.
+# Already-compressed binaries (PNG/ICO/WOFF2) are excluded.
+# ============================================================
+
+<IfModule mod_deflate.c>
+    # Compress text responses (core SetOutputFilter is more reliable
+    # across builds than AddOutputFilterByType).
+    <FilesMatch "\.(css|js|html|json|svg|xml|txt)$">
+        SetOutputFilter DEFLATE
+    </FilesMatch>
+</IfModule>
+
+# ============================================================
+# Static Asset Caching (effective immediately via mod_headers)
+# Versioned assets (?v=build hash from assetUrl()) are immutable:
+# a new deployment is a new URL, so long lifetimes are safe.
+# Dynamic PHP pages and API responses are never cached here —
+# PHP already sends no-store for those.
+# ============================================================
+
+<FilesMatch "\.(css|js|png|svg|ico|woff2?)$">
+    Header always set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+<FilesMatch "\.(csv)$">
+    Header always set Cache-Control "public, max-age=86400"
+</FilesMatch>
+
+<FilesMatch "^(manifest\.json)$">
+    Header always set Cache-Control "public, max-age=3600"
+</FilesMatch>
+
+# The worker script must always revalidate so updates propagate.
+<FilesMatch "^(sw\.js)$">
+    Header always set Cache-Control "no-store"
+</FilesMatch>
+
+# ============================================================
+# PHP Output Compression (effective immediately — mod_php)
+# Compresses HTML pages + JSON API responses until mod_deflate
+# takes over static files after a restart (it skips responses
+# that already carry Content-Encoding, so no double encoding).
+# ============================================================
+
+<IfModule mod_php.c>
+    php_value zlib.output_compression 1
+    php_value zlib.output_compression_level 6
+</IfModule>

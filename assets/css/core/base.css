@@ -1,0 +1,148 @@
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.dark-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #4F46E5;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1E293B;
+}
+
+p {
+    line-height: 1.6;
+    color: #475569;
+}
+
+small, .text-sm {
+    line-height: 1.5;
+}
+
+.text-slate-400 {
+    color: #64748b;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    color: #64748b;
+    opacity: 1;
+}
+
+.ep-skip-link {
+    position: fixed;
+    top: -100px;
+    left: 12px;
+    z-index: 500;
+    background: var(--ep-primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: top 0.15s ease;
+}
+
+.ep-skip-link:focus {
+    top: 12px;
+}
+
+[role="dialog"] {
+    outline: none;
+}
+
+.counter,
+.stat-card p,
+#report-summary-cards p,
+#profile-stats p {
+    overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .skeleton {
+        animation: none;
+        background: #F1F5F9;
+    }
+
+    .progress-bar-fill {
+        transition: none;
+    }
+
+    .card-hover:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .card {
+        border: 1px solid #64748B;
+    }
+
+    .progress-bar,
+    .budget-progress {
+        border: 1px solid #64748B;
+    }
+
+    .drop-zone {
+        border-width: 3px;
+    }
+}

@@ -1,0 +1,44 @@
+@keyframes toastSlideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toastSlideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+.toast-enter {
+    animation: toastSlideIn 0.3s ease-out forwards;
+}
+
+.toast-exit {
+    animation: toastSlideOut 0.3s ease-in forwards;
+}
+
+@media (max-width: 767px) {
+    @keyframes toastSlideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes toastSlideDown {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(20px); opacity: 0; }
+    }
+
+    .toast-enter {
+        animation: toastSlideUp 0.3s ease-out forwards;
+    }
+
+    .toast-exit {
+        animation: toastSlideDown 0.3s ease-in forwards;
+    }
+
+    #toast-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}

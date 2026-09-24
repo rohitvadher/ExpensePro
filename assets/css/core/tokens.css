@@ -1,0 +1,25 @@
+:root {
+    --ep-primary: #4f46e5;
+    --ep-primary-dark: #4338ca;
+    --ep-success: #10b981;
+    --ep-danger: #e11d48;
+    --ep-warning: #f59e0b;
+    --ep-bg: #f8fafc;
+    --ep-surface: #ffffff;
+    --ep-text: #0f172a;
+    --ep-muted: #64748b;
+    --ep-border: #e2e8f0;
+    --ep-radius: 16px;
+    --ep-radius-sm: 12px;
+    --ep-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    --ep-transition: 0.2s ease;
+    --z-header: 40;
+    --z-sidebar: 50;
+    --z-nav: 55;
+    --z-backdrop: 90;
+    --z-sheet: 100;
+    --z-modal: 100;
+    --z-loader: 200;
+    --z-banner: 300;
+    --z-toast: 400;
+}

@@ -1,0 +1,7 @@
+date,type,category,amount,description
+2026-01-01,income,Salary,50000.00,Monthly salary January
+2026-01-05,expense,Food & Dining,1200.50,"Grocery shopping, weekly"
+2026-01-10,expense,Transportation,500.00,Monthly bus pass
+2026-01-15,income,Freelance,8000.00,Web design project
+2026-01-20,expense,Bills & Utilities,2500.00,Electricity bill
+2026-01-25,expense,Health,800.00,Doctor consultation

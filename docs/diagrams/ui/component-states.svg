@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="640" viewBox="0 0 720 640" role="img"><title>Component States (actual ExpensePro styles)</title><rect width="720" height="640" fill="#FFFFFF"/><text x="20" y="24" font-family="system-ui,Segoe UI,Arial" font-size="17" font-weight="700" fill="#4338CA">Component States (actual ExpensePro styles)</text>
+<text x="20" y="60" font-family="system-ui,Segoe UI,Arial" font-size="14" font-weight="700" fill="#4338CA">Buttons (#submit-btn pattern)</text>
+<rect x="20" y="94" width="220" height="40" rx="12" fill="#4F46E5" fill-opacity="1.0"/>
+<text x="130" y="119" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="600" fill="#FFFFFF" fill-opacity="1.0">Save</text>
+<text x="260" y="119" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Default</text>
+<rect x="20" y="146" width="220" height="40" rx="12" fill="#4338CA" fill-opacity="1.0"/>
+<text x="130" y="171" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="600" fill="#FFFFFF" fill-opacity="1.0">Save</text>
+<text x="260" y="171" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Hover (indigo-700)</text>
+<rect x="20" y="198" width="220" height="40" rx="12" fill="#4F46E5" fill-opacity="1.0"/>
+<text x="130" y="223" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="600" fill="#FFFFFF" fill-opacity="1.0">Save</text>
+<text x="260" y="223" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Active (scale-95)</text>
+<rect x="20" y="250" width="220" height="40" rx="12" fill="#4F46E5" fill-opacity="0.5"/>
+<text x="130" y="275" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="600" fill="#FFFFFF" fill-opacity="0.5">Save</text>
+<text x="260" y="275" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Disabled (opacity-50)</text>
+<rect x="20" y="302" width="220" height="40" rx="12" fill="#4F46E5" fill-opacity="1.0"/>
+<text x="130" y="327" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="600" fill="#FFFFFF" fill-opacity="1.0">•••</text>
+<text x="260" y="327" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Loading (3-dots)</text>
+<text x="20" y="364" font-family="system-ui,Segoe UI,Arial" font-size="14" font-weight="700" fill="#4338CA">Inputs (border states)</text>
+<rect x="20" y="394" width="300" height="38" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+<text x="340" y="418" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Default (slate-300)</text>
+<rect x="20" y="444" width="300" height="38" rx="12" fill="#FFFFFF" stroke="#4F46E5" stroke-width="2"/>
+<text x="340" y="468" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Focus (indigo ring)</text>
+<rect x="20" y="494" width="300" height="38" rx="12" fill="#FFFFFF" stroke="#E11D48" stroke-width="2"/>
+<text x="340" y="518" font-family="system-ui,Segoe UI,Arial" font-size="12.5" fill="#334155">Error (rose-500)</text>
+<text x="20" y="554" font-family="system-ui,Segoe UI,Arial" font-size="14" font-weight="700" fill="#4338CA">List states: empty / loading / error-with-retry</text>
+</svg>

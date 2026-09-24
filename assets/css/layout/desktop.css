@@ -1,0 +1,37 @@
+@media (min-width: 768px) {
+    .ep-filter-panel {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .ep-filter-backdrop {
+        display: none;
+    }
+
+    .ep-filter-card {
+        background: var(--ep-surface);
+        border: 1px solid var(--ep-border);
+        border-radius: 12px;
+        padding: 12px 14px;
+    }
+
+    .ep-filter-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #f1f5f9;
+    }
+
+    .ep-filter-count {
+        font-size: 12px;
+        color: var(--ep-muted);
+    }
+
+    .ep-filter-count strong {
+        color: var(--ep-text);
+        font-weight: 700;
+    }
+}
