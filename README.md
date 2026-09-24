@@ -1,246 +1,500 @@
-# ExpensePro — Income & Expense Manager
+# ExpensePro
+
+> **Personal finance management with a clean, focused interface — built with PHP, MySQL, vanilla JavaScript, and PWA support.**
 
 [![PHP](https://img.shields.io/badge/PHP-8.0%2B-777BB4?logo=php&logoColor=white)](https://www.php.net/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![PWA](https://img.shields.io/badge/PWA-Ready-5A0FC8)](./manifest.json)
-[![License](https://img.shields.io/badge/License-Educational-lightgrey)](#project-information)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![PWA](https://img.shields.io/badge/PWA-Supported-5A0FC8)](./manifest.json)
+[![Apache](https://img.shields.io/badge/Server-Apache-D22128?logo=apache&logoColor=white)](https://httpd.apache.org/)
 
-“ExpensePro is a PHP and MySQL based personal finance management Progressive Web App designed to manage income, expenses, categories, budgets, analytics, reports, notifications and financial data import/export through a modular web architecture.”
+ExpensePro is a PHP and MySQL personal finance application for managing income, expenses, categories, budgets, analytics, reports, notifications, quick templates, and financial imports/exports.
 
-## Project Overview
+## Screenshots
 
-ExpensePro tracks daily income and expenses for individual users. Each user gets private categories, transactions, budgets, CSV import history, smart notifications and quick-entry templates. A dashboard summarizes the current month, analytics visualizes twelve-month trends, and reports produce CSV downloads and printable/PDF output. Guests see a public landing page; signing in routes to the dashboard. The app installs as a PWA and keeps working offline for cached pages.
+### Desktop
 
-## Purpose
+<p align="center">
+  <img src="./docs/screenshots/desktop/desktop-dashboard.png" width="49%" alt="ExpensePro desktop dashboard">
+  <img src="./docs/screenshots/desktop/desktop-transactions.png" width="49%" alt="ExpensePro desktop transactions">
+</p>
 
-Give individuals a clear picture of where their money goes: record income and spending in seconds, stay within monthly budgets, review trends, and export clean records for accounting or tax filing.
+### Mobile
 
-## Core Features
+<p align="center">
+  <img src="./docs/screenshots/mobile/mobile-dashboard.png" width="32%" alt="ExpensePro mobile dashboard">
+  <img src="./docs/screenshots/mobile/mobile-transactions.png" width="32%" alt="ExpensePro mobile transactions">
+  <img src="./docs/screenshots/mobile/mobile-analytics.png" width="32%" alt="ExpensePro mobile analytics">
+</p>
 
-- Landing page, registration, login, logout, remember-me, secure sessions
-- Dashboard with income, expense, balance, counts, recent activity and budget status
-- Transactions with search, type/category/date filters, pagination, create, edit and delete
-- Income and expense categories with colors, icons and safe delete (reassign or block when in use)
-- Weekly, monthly and yearly budgets per category or overall, with progress and over-budget state
-- Analytics charts (net-balance trend, income vs expense, category breakdown)
-- Reports with date ranges, quick ranges, charts, CSV export and PDF export
-- CSV import with header detection, row validation, duplicate detection, preview and history
-- Smart notifications (over-budget alerts, login notices) with read/unread state
-- Quick templates for one-tap frequent entries
-- Profile management and password change with current-password verification
-- Command palette (`Ctrl+K`), mobile bottom navigation, help guide, offline page
+More interface screenshots are available in [`docs/screenshots/`](./docs/screenshots/).
+
+## Features
+
+- Secure registration, login, logout, sessions, and remember-me authentication
+- Dashboard with income, expenses, balance, activity, and budget status
+- Transaction management with search, filters, pagination, create, edit, and delete
+- Income and expense category management
+- Weekly, monthly, and yearly budgets
+- Financial analytics and category breakdowns
+- Reports with date ranges, charts, CSV export, and PDF/print output
+- CSV import with parsing, validation, duplicate detection, preview, and history
+- Notifications with read/unread state
+- Quick templates for frequent entries
+- Profile management and password change
+- Command palette and responsive mobile navigation
+- Installable PWA with offline support for supported cached resources
+
+## Theme
+
+ExpensePro follows a light, minimal finance-oriented visual system:
+
+- **Primary:** Indigo/purple accents for actions and focus states
+- **Background:** Soft slate/near-white surfaces for a clean workspace
+- **Text:** Deep slate tones for high readability
+- **Success:** Green for positive financial states
+- **Warning:** Amber for attention and budget states
+- **Error:** Red/rose for destructive or invalid states
+- **Components:** Rounded cards, restrained borders, compact controls, and clear spacing
+- **Responsive UI:** Dedicated desktop and mobile layouts with safe-area support
+
+The visual language is intentionally focused on clarity rather than decorative effects.
 
 ## Technology Stack
 
 | Layer | Technology |
-|---|---|
+| --- | --- |
 | Backend | PHP 8+ |
-| Database | MySQL |
-| Database Engine | InnoDB |
+| Database | MySQL 8+ |
 | Database Access | PDO |
+| Storage Engine | InnoDB |
+| Character Set | `utf8mb4` |
 | Frontend | Vanilla JavaScript |
-| CSS | Tailwind CSS |
-| Charts | ApexCharts 3.44.0 (lazy-loaded) |
-| Icons | Lucide 1.47.0 where used, local SVG set |
-| Date Tools | Flatpickr 4.6.13 for pickers, Day.js 1.11.23 for date math (both lazy-loaded) |
-| PDF | html2pdf.js 0.10.2 client engine plus server printable report (both lazy/on-demand) |
+| Styling | Tailwind CSS + modular CSS |
+| Charts | ApexCharts |
+| Date Handling | Flatpickr + Day.js |
+| PDF | html2pdf.js + server printable report |
 | PWA | Service Worker + Web App Manifest |
-| Server | Apache/XAMPP |
-
-Only the libraries above are used. There is no jQuery, no frontend framework, no Node runtime and no build step.
+| Web Server | Apache / XAMPP |
 
 ## Architecture
 
 ```text
-ExpensePro
-    |
-    +-- Frontend                  Backend
-    |      |                         |
-    |   Pages / UI               API / Services
-    |      |                         |
-    |  JS Modules                Validation
-    |      |                         |
-    |  API Client                Security
-    |      |                         |
-    +------+------------+------------+
-                         |
-                     Repository
-                         |
-                        PDO
-                         |
-                       MySQL
+                         ExpensePro
+                             │
+             ┌───────────────┴───────────────┐
+             │                               │
+         Presentation                     Backend
+             │                               │
+       pages / layouts                   API endpoints
+             │                               │
+       frontend modules                 services / rules
+             │                               │
+        API client                     repositories
+             │                               │
+             └───────────────┬───────────────┘
+                             │
+                            PDO
+                             │
+                           MySQL
 ```
 
-### Folder Structure
+### Request flow
+
+```text
+User
+ ↓
+UI Event
+ ↓
+Frontend Validation
+ ↓
+API Client
+ ↓
+PHP API
+ ↓
+Authentication / CSRF
+ ↓
+Backend Validation
+ ↓
+Service
+ ↓
+Repository
+ ↓
+PDO
+ ↓
+MySQL
+ ↓
+API Response
+ ↓
+Frontend State
+ ↓
+UI
+```
+
+## Project Structure
 
 ```text
 ExpensePro/
-├── api/                       # 14 JSON endpoints (login, register, logout, version,
-│                              # dashboard, transactions, categories, budgets, import,
-│                              # reports, export, profile, quick-templates, notifications)
+│
+├── api/
+│   ├── budgets.php
+│   ├── categories.php
+│   ├── dashboard.php
+│   ├── export.php
+│   ├── import.php
+│   ├── login.php
+│   ├── logout.php
+│   ├── notifications.php
+│   ├── profile.php
+│   ├── quick-templates.php
+│   ├── register.php
+│   ├── reports.php
+│   ├── transactions.php
+│   └── version.php
+│
 ├── assets/
-│   ├── css/                   # Modular styles: core, layout, components, features, pages
-│   ├── js/                    # core (config, api-client, errors, validation, finance,
-│   │                          # form-state), services, components, features, pages, vendor
-│   └── icons/                 # PWA icons + SVG set
-├── backend/                   # Canonical server modules: core, validation, http,
-│                              # security, domain, support, calculations, database, services
+│   ├── css/
+│   │   ├── core/            # Base, tokens, utilities
+│   │   ├── layout/          # Desktop, mobile, responsive, print
+│   │   ├── components/      # Forms, cards, buttons, modal, tables, toast
+│   │   ├── features/        # Datepicker, PDF, PWA
+│   │   ├── pages/           # Page-specific styles
+│   │   └── tailwind.css
+│   │
+│   ├── js/
+│   │   ├── core/            # API, config, errors, finance, form state, validation
+│   │   ├── pages/           # Page controllers
+│   │   ├── app.js           # Shared application coordination
+│   │   ├── dashboard.js
+│   │   ├── transactions.js
+│   │   ├── categories.js
+│   │   ├── charts.js
+│   │   ├── pdf.js
+│   │   ├── pwa.js
+│   │   ├── vendor.js
+│   │   └── loader.js
+│   │
+│   └── icons/               # Web/PWA and SVG icon assets
+│
+├── backend/
+│   ├── calculations/        # Financial calculations
+│   ├── core/                # Shared backend primitives
+│   ├── database/
+│   │   ├── repositories/    # Database access
+│   │   └── TransactionManager.php
+│   ├── domain/              # Domain-specific rules
+│   ├── http/                # Response handling
+│   ├── security/            # CSRF, device and rate limiting
+│   ├── services/            # Business workflows
+│   ├── support/             # Formatting and supporting utilities
+│   └── validation/          # Server-side validation
+│
 ├── database/
-│   ├── schema.sql             # Full MySQL schema + safe rerunnable upgrades
-│   └── migrations/            # 001_performance_indexes.sql (idempotent)
-├── docs/                      # Final documentation pack + screenshots
-├── includes/                  # config, database, functions loader, finance, auth, api guards
-├── layouts/                   # guest/app headers, sidebar, mobile nav, footer, scripts
-├── offline/                   # Self-contained offline page
-├── pages/                     # 14 server-rendered pages
-├── .htaccess                  # Clean URLs + security headers + asset caching
+│   └── schema.sql           # MySQL schema and upgrade-safe definitions
+│
+├── docs/
+│   ├── assets/              # Charts and diagrams
+│   ├── charts/              # Architecture/project analytics
+│   ├── diagrams/            # System, API, database, security, PWA flows
+│   └── screenshots/         # Desktop and mobile UI screenshots
+│
+├── includes/
+│   ├── api.php              # API bootstrap/helpers
+│   ├── auth.php             # Authentication/session helpers
+│   ├── config.php           # Application configuration
+│   ├── database.php         # PDO connection bootstrap
+│   ├── finance.php          # Finance compatibility layer
+│   └── functions.php        # Shared compatibility loader
+│
+├── layouts/
+│   ├── app-header.php
+│   ├── guest-header.php
+│   ├── sidebar.php
+│   ├── mobile-bottom-nav.php
+│   ├── footer.php
+│   └── scripts.php
+│
+├── offline/
+│   └── offline.html         # Offline fallback page
+│
+├── pages/
+│   ├── home.php
+│   ├── login.php
+│   ├── register.php
+│   ├── dashboard.php
+│   ├── transactions.php
+│   ├── categories.php
+│   ├── budgets.php
+│   ├── analytics.php
+│   ├── reports.php
+│   ├── import.php
+│   ├── notifications.php
+│   ├── profile.php
+│   ├── help.php
+│   └── 404.php
+│
+├── .htaccess
 ├── .gitignore
-├── index.php                  # Front controller (?page= routing)
-├── manifest.json              # PWA manifest
-├── README.md
-└── sw.js                      # Service worker
+├── index.php
+├── LICENSE
+├── manifest.json
+└── sw.js
 ```
 
-### Frontend Architecture
+## Frontend Structure
 
-Pages are server-rendered shells; behavior lives in page controllers under `assets/js/pages/` that share one core: a single API client (one JSON parser, CSRF header, `AbortController` support, network-vs-server error model), a central error handler (401 sessions, 403 tokens, 404/409/422/429/500 mapping, field-error application), one validation layer mirroring the server, one finance module for previews, and one button/form state machine (disabled while invalid or submitting, always restored). One modal controller, one toast system and one vendor loader (pinned SRI, lazy, timeouts) serve every page. Heavy libraries load only when used. Inline event handlers are not used; a delegated dispatcher routes `data-ep-action` clicks.
+The frontend is modular rather than framework-dependent.
 
-### Backend Architecture
-
-`index.php` routes `?page=` through a fixed whitelist to `pages/`, wrapped by guest or application layouts. `api/*.php` controllers handle HTTP method, authentication, CSRF, validation and responses only; business workflows live in `backend/services/` and data access in `backend/database/repositories/` (PDO prepared statements, every query scoped to the authenticated user). Shared rules live in focused modules: validation, money math, CSRF, rate limiting, responses, notifications and budget periods. `includes/functions.php` loads them for backward compatibility.
-
-### API Architecture
-
-Every endpoint returns one envelope:
-
-```json
-{ "success": true, "message": "Transactions retrieved successfully.", "data": {}, "errors": null }
+```text
+Page
+ │
+ ├── Page Controller
+ │
+ ├── Core
+ │   ├── API Client
+ │   ├── Validation
+ │   ├── Error Handler
+ │   ├── Finance
+ │   └── Form State
+ │
+ ├── Services / Feature Logic
+ │
+ └── UI Rendering
 ```
 
-Validation failures return HTTP 422 with per-field messages; duplicates 409; missing login 401; bad tokens 403; missing rows 404; rate limits 429; server failures a safe generic 500. Responses never expose SQL, paths or stack traces. Downloads (CSV, printable report) use correct content types and filenames.
+The shared frontend core centralizes API communication, response handling, validation, finance calculations, loading/error states, and reusable UI behavior.
 
-### Database Architecture
+## Backend Structure
 
-MySQL with InnoDB and `utf8mb4`. Nine tables: `users`, `categories`, `transactions`, `budgets`, `quick_templates`, `csv_imports`, `notifications`, `login_attempts`, `rate_limits`. Money uses exact `DECIMAL(12,2)`. All user data cascades from `users`; transaction categories are delete-restricted (reassign or block); budget and template categories null out safely. Ownership indexes plus dedicated performance indexes cover auth, filtering, reporting and cleanup queries. `schema.sql` creates everything and safely upgrades older installs; `migrations/001_performance_indexes.sql` is idempotent.
+The backend separates HTTP handling from business logic and database access.
 
-## Authentication
+```text
+API Endpoint
+    ↓
+Authentication / CSRF
+    ↓
+Validation
+    ↓
+Service
+    ↓
+Repository
+    ↓
+PDO
+    ↓
+MySQL
+```
 
-Registration validates name, email and password strength, rejects duplicate emails (409) and seeds default categories inside a database transaction. Login rate-limits failures (5 per 15 minutes per email and IP, dummy-hash timing on unknown users), rehashes outdated bcrypt hashes, clears failure counters and optionally sets a 30-day remember-me token (SHA-256 stored, HttpOnly, `SameSite=Lax`, rotated on each use, revoked on logout and password change). Sessions regenerate IDs on login, expire after 24 hours of inactivity and refresh CSRF tokens every 30 minutes. Password change revokes remembered devices.
+Key responsibilities:
+
+| Layer | Responsibility |
+| --- | --- |
+| `api/` | HTTP boundary and endpoint handling |
+| `backend/services/` | Business workflows |
+| `backend/database/repositories/` | MySQL data access |
+| `backend/validation/` | Server-side validation |
+| `backend/security/` | CSRF, rate limiting, device/session controls |
+| `backend/calculations/` | Financial calculation logic |
+| `backend/http/` | Structured API responses |
+| `includes/` | Application bootstrap and compatibility loading |
+
+## Database
+
+ExpensePro uses MySQL with InnoDB and `utf8mb4`.
+
+Core tables include:
+
+- `users`
+- `categories`
+- `transactions`
+- `budgets`
+- `quick_templates`
+- `csv_imports`
+- `login_attempts`
+- `rate_limits`
+- `notifications`
+
+Money is stored using exact `DECIMAL(12,2)` values.
+
+Relationships are user-scoped, with foreign-key constraints and indexes for common authentication, filtering, reporting, and cleanup queries.
+
+Schema:
+
+[`database/schema.sql`](./database/schema.sql)
 
 ## Validation
 
-Frontend validation gives instant feedback; the backend re-validates everything authoritatively. Rules: email format, password of at least 8 characters with a letter and a number, amounts finite, positive, capped and limited to two decimals, dates in `YYYY-MM-DD`, category ownership plus income/expense type match, names 2–100 characters, hex colors and icon allowlists. Duplicates are detected for transactions, categories, budgets and emails. CSV rows are validated individually with per-row error reports.
+Validation is applied at multiple layers:
 
-## Financial Calculations
+```text
+User Input
+    ↓
+Frontend Validation
+    ↓
+API Request
+    ↓
+Backend Validation
+    ↓
+Business Rules
+    ↓
+Database Constraints
+    ↓
+MySQL
+```
 
-One canonical model (`moneyRound`, `calcTotals`, `calcPercentage`, `calcSavingsRate`, `calcAvgDaily`, `calcBudgetStatus`, Indian `formatINR` grouping) is used by dashboard, analytics, reports, budgets, exports and profile alike, so every screen agrees:
+Frontend validation provides immediate feedback while the backend remains authoritative.
 
-- Balance = Total Income − Total Expense
-- Savings Rate = ((Income − Expense) / Income) × 100
-- Budget Remaining = max(0, Limit − Spent); over-budget when Spent > Limit
-- Daily average spreads expense across the selected date range
+Examples of validated data include:
+
+- email
+- passwords
+- transaction type
+- category ownership/type
+- transaction amount
+- dates
+- names
+- CSV rows
+- duplicate records
 
 ## Security
 
-Bcrypt hashing with rehash, regenerated sessions, `HttpOnly` + `SameSite=Lax` cookies (`Secure` on real HTTPS), CSRF on every state-changing API, per-user ownership checks on every query, prepared statements throughout, input validation plus output escaping, allowlisted notification links and icons, login/register/import rate limiting with self-cleaning buckets, generic error responses, and security headers (CSP scoped to the pinned CDN, `nosniff`, `DENY` framing, same-origin referrer). Direct access to `database/`, `includes/`, `backend/` and logs is denied.
+ExpensePro includes:
 
-## Import/Export
+- Password hashing with bcrypt
+- Session regeneration
+- Remember-me token rotation
+- CSRF protection
+- PDO prepared statements
+- Input validation and output escaping
+- Rate limiting
+- Safe API error responses
+- Security headers
 
-CSV import accepts `.csv` under 5 MB, sniffs content beyond the extension, detects headers, parses `YYYY-MM-DD` and `DD/MM/YYYY` dates, strips currency symbols, fuzzy-matches income/expense types, maps existing categories, rejects duplicates, records per-row errors and stores a history entry (`completed`, `partial` or `failed`). CSV export and the printable/PDF report reuse the page filters and server-authoritative data with correct filenames.
+Sensitive database credentials should be supplied through local configuration and never committed to the repository.
 
-## Analytics
+## Financial Calculations
 
-Twelve-month net-balance and income-vs-expense charts, summary bars, category breakdown, one-click refresh with stale-response protection, graceful empty states and offline degradation to native controls when the chart CDN is unreachable.
+The application keeps financial calculations consistent across dashboard, analytics, reports, budgets, exports, and profile statistics.
 
-## Budget System
+```text
+Balance
+= Total Income - Total Expense
 
-Overall or per-category budgets over weekly, monthly or yearly periods with automatic period ranges, live spent totals, remaining amounts, percentages, over-budget flags and duplicate protection per category and period.
+Savings Rate
+= ((Income - Expense) / Income) × 100
 
-## Notification System
-
-Budget alerts are regenerated at most every 30 minutes with same-day deduplication; login notices are deduplicated within 15 minutes. Users can mark one or all as read. Only the newest 30 notifications are retained per user.
+Budget Remaining
+= max(0, Budget Limit - Spent)
+```
 
 ## PWA
 
-Installable manifest (standalone display, icons, portrait), service worker with versioned caches: static assets served stale-while-revalidate, API calls network-only with an offline JSON fallback, navigation network-first with a self-contained offline page, old-cache cleanup, update banner on new builds, deferred install prompt and online/offline toasts.
+ExpensePro includes:
 
-## Performance Strategy
+- Web App Manifest
+- Service Worker
+- Versioned caches
+- Static-resource caching
+- Navigation fallback
+- Offline page
+- Network-aware API behavior
+- Cache cleanup
+- Install/update support
 
-Page-specific JS and CSS, lazy optional libraries, shared API client, cancellable requests with stale-response guards, event delegation, indexed and paginated queries, immutable caching of versioned assets, gzip output and a service worker cache — no build step, no framework overhead.
+The service worker is implemented in [`sw.js`](./sw.js).
 
-## CDN/Lazy Loading
+## Import & Export
 
-One registry (`assets/js/vendor.js`) pins Lucide, Flatpickr (+CSS), Day.js, ApexCharts and html2pdf.js on jsDelivr with integrity hashes, loads each once on first use with timeouts and failed-load cleanup, and degrades gracefully (native date inputs, local date math, friendly chart/PDF errors).
+### CSV Import
+
+```text
+CSV File
+ ↓
+File Validation
+ ↓
+Header Detection
+ ↓
+Row Parsing
+ ↓
+Row Validation
+ ↓
+Duplicate Detection
+ ↓
+Database Transaction
+ ↓
+Import Result / History
+```
+
+### Export
+
+ExpensePro supports CSV and printable/PDF report output using the application's existing server-authoritative data and filters.
+
+## Performance
+
+The project uses:
+
+- Modular JavaScript
+- Shared API communication
+- Lazy vendor loading
+- Cancellable requests
+- Stale-response protection
+- Event delegation
+- Indexed MySQL queries
+- Pagination
+- Cached static resources
+- Service-worker caching
 
 ## Installation
 
-1. Install XAMPP (PHP 8+, MySQL, Apache) and start Apache + MySQL.
-2. Copy this folder to `C:\xampp\htdocs\ExpensePro`.
-3. Create the database (next section).
-4. Open `http://localhost/ExpensePro/` and register an account.
+### Requirements
 
-## XAMPP Configuration
+- Apache
+- PHP 8.0+
+- MySQL 8.0+
 
-Apache needs `mod_rewrite` (clean `?page=` URLs) and `mod_headers` (security headers). PHP needs `pdo_mysql`, `mbstring` and `fileinfo`. No Composer packages and no npm steps are required.
+### XAMPP
 
-## MySQL Database Setup
+1. Install XAMPP with Apache, PHP, and MySQL.
+2. Copy the project into `C:\xampp\htdocs\ExpensePro`.
+3. Start Apache and MySQL.
+4. Create a database named `expensepro`.
+5. Import [`database/schema.sql`](./database/schema.sql).
+6. Open:
+
+```text
+http://localhost/ExpensePro/
+```
+
+### MySQL
 
 ```sql
 CREATE DATABASE IF NOT EXISTS expensepro
-  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
 ```
 
-Then import `database/schema.sql` (phpMyAdmin → Import, or `mysql -u root expensepro < database/schema.sql`). On an existing install, also apply `database/migrations/001_performance_indexes.sql` (safe to rerun). Default credentials are user `root` with an empty password and database `expensepro`; override with `EXPENSEPRO_DB_HOST`, `EXPENSEPRO_DB_NAME`, `EXPENSEPRO_DB_USER`, `EXPENSEPRO_DB_PASS` environment values.
+Use the project's supported configuration to provide the database connection values.
 
-## Configuration
+## Browser Support
 
-`includes/config.php` centralizes the base URL (auto-detected, overridable with `EXPENSEPRO_BASE_URL`), app name and version, `Asia/Kolkata` timezone, 24-hour sessions, 30-minute CSRF rotation and production-safe error handling (nothing displayed, nothing logged to files). Session cookies are `HttpOnly`, `SameSite=Lax`, scoped to the app path.
+ExpensePro targets modern browsers supporting:
 
-## Application Workflow
+- ES6+
+- Fetch API
+- modern CSS
+- Service Workers
+- responsive viewport features
 
-Guest lands on the public page, registers or logs in, and reaches the dashboard. From there every feature is one navigation away; the command palette (`Ctrl+K`) jumps anywhere. All data operations flow: UI → validation → API → service → repository → MySQL → envelope → state → UI.
+Primary browsers:
 
-## User Workflow
+- Chrome
+- Edge
+- Firefox
+- Safari
 
-Register → verify dashboard → add categories → record income and expenses (or import CSV) → set budgets → review analytics and reports → export records → manage profile and notifications. Logout clears the session and remembered devices.
+## Author
 
-## API Request Flow
+**Rohit Vadher**
 
-Browser → frontend API client → HTTP request → endpoint → authentication → CSRF → validation → service → repository → MySQL → repository result → service → API response → frontend state → UI update, with field errors mapped back onto the form that sent them.
+## License
 
-## Security Workflow
-
-Every protected request proves identity (session or rotated remember-me), proves intent (CSRF token), proves ownership (user-scoped queries), uses parameterized SQL, validates input twice (client for speed, server for authority), escapes output, and answers failures with safe generic messages and correct HTTP codes.
-
-## Validation Workflow
-
-User input → frontend validation → field error or API request → backend validation → structured error or business rules → database constraints → MySQL. Invalid data is explained at the exact field; valid data proceeds.
-
-## Folder Responsibility
-
-- `api/` — HTTP boundary only (14 endpoints).
-- `pages/` + `layouts/` — server-rendered shells and navigation.
-- `assets/js/` — frontend core, services, components, features, page controllers.
-- `assets/css/` — tokens, layout, components, features, pages.
-- `backend/` — validation, calculations, security, domain, services, repositories.
-- `includes/` — bootstrap (config, PDO, auth, API guards).
-- `database/` — schema plus idempotent migrations.
-- `docs/` — final documentation, screenshots and diagrams.
-- `offline/` — offline page. `sw.js`, `manifest.json` — PWA shell.
-
-## Deployment
-
-Copy the folder to any Apache + PHP 8 + MySQL host, point the document path at it (or keep the `/ExpensePro/` prefix and matching `RewriteBase`), import the schema, set credentials via environment, and open the app. Versioned asset URLs (`?v=`) make deploys cache-safe; the update banner notifies running clients.
-
-## Browser Compatibility
-
-Chrome and Edge (full PWA install), Firefox (no install prompt), Safari iOS (Add to Home Screen). Verified desktop viewports 1440×900, 1366×768, 1920×1080 and mobile 390×844, 412×915 with touch. `AbortController`, `fetch`, dynamic viewport units and backdrop filters degrade gracefully.
-
-## Project Information
-
-- Project: ExpensePro — Income & Expense Manager
-- Student: Rohit Vadher
-- Course: BCA Sem-5
-- Version: 1.0
-- Stack: PHP 8+, PDO, MySQL (InnoDB, utf8mb4), vanilla JavaScript, Tailwind CSS, Apache/XAMPP
-- Full reference: `docs/ExpensePro_Project_Documentation.pdf` (and `.docx`), screenshots under `docs/screenshots/`
+See [`LICENSE`](./LICENSE) for the repository license.
